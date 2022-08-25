@@ -75,6 +75,7 @@ function checkWin() {
       resultPrint();
       break;
     } else if (!tileBox.includes("")) {
+      resultDisplay.style.height = "50px";
       resultDisplay.innerHTML = "Game Draw";
     }
   }
