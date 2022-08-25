@@ -83,12 +83,14 @@ function checkWin() {
 function resultPrint() {
   if (playerXTurn) {
     resultDisplay.innerHTML = "Play O Won";
+    resultDisplay.style.height = "50px";
     tileElement.forEach((element) => {
       element.classList.remove("active");
       element.classList.remove("active2");
     });
   } else {
     resultDisplay.innerHTML = "Play X Won";
+    resultDisplay.style.height = "50px";
     tileElement.forEach((element) => {
       element.classList.remove("active");
       element.classList.remove("active2");
