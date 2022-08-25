@@ -40,17 +40,21 @@ tileElement.forEach((tile, i) => {
   tile.addEventListener("click", () => {
     if (won == false) {
       if (playerXTurn) {
-        tile.innerHTML = "X";
-        playerXTurn = false;
-        tile.classList.remove("active");
-        tile.classList.remove("active2");
-        tileBox[i] = "X";
+        if (tileBox[i] == "") {
+          tile.innerHTML = "X";
+          playerXTurn = false;
+          tile.classList.remove("active");
+          tile.classList.remove("active2");
+          tileBox[i] = "X";
+        }
       } else {
-        tile.innerHTML = "O";
-        playerXTurn = true;
-        tile.classList.remove("active2");
-        tile.classList.remove("active");
-        tileBox[i] = "O";
+        if (tileBox[i] == "") {
+          tile.innerHTML = "O";
+          playerXTurn = true;
+          tile.classList.remove("active2");
+          tile.classList.remove("active");
+          tileBox[i] = "O";
+        }
       }
       playTurn();
     }
@@ -70,10 +74,7 @@ function checkWin() {
       won = true;
       resultPrint();
       break;
-    }
-  }
-  for (let i = 0; i < tileBox.length; i++) {
-    if (!tileBox.includes("")) {
+    } else if (!tileBox.includes("")) {
       resultDisplay.innerHTML = "Game Draw";
     }
   }
