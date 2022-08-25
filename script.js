@@ -11,6 +11,7 @@ let winCondition = [
   [0, 4, 8],
   [2, 4, 6],
 ];
+let resetElement = document.querySelector(".reset");
 let won = false;
 const resultDisplay = document.querySelector(".result");
 let playerTurnElement = document.querySelector(".playerTurn");
@@ -101,3 +102,14 @@ function playTurn() {
     playerTurnElement.innerHTML = "Player O's Turn";
   }
 }
+
+resetElement.addEventListener("click", () => {
+  tileBox = ["", "", "", "", "", "", "", "", ""];
+  tileElement.forEach((element) => {
+    element.innerHTML = "";
+    element.classList.remove("active");
+    element.classList.remove("active2");
+  });
+  won = false;
+  resultDisplay.innerHTML = "";
+});
